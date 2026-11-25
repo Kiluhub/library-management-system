@@ -1,3 +1,6 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
 
 * {
   box-sizing: border-box;
@@ -5,86 +8,316 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f6f9;
-  color: #1f2937;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f7fb;
+  color: #1e293b;
+}
+
+#root {
+  min-height: 100vh;
 }
 
 main {
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1250px;
   margin: 0 auto;
-  padding: 35px 20px;
+  padding: 35px 25px;
 }
 
 h1 {
   color: #1e3a5f;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 h2 {
   margin-bottom: 25px;
+  color: #334155;
 }
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 18px 30px;
+  background: #1e3a5f;
+  color: white;
+}
+
+.nav-brand {
+  font-size: 23px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.nav-links a:hover {
+  color: #bfdbfe;
+}
+
+.nav-links button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 9px 14px;
+  border-radius: 6px;
+}
+
+.nav-links button:hover {
+  background: #dc2626;
+}
+
+/* =========================
+   SEARCH AND GENRE FILTER
+========================= */
 
 input,
 select {
-  padding: 12px;
-  margin: 0 12px 25px 0;
+  padding: 12px 14px;
   border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  font-size: 15px;
+  border-radius: 7px;
   background: white;
+  margin-bottom: 20px;
+  outline: none;
 }
 
-input {
-  width: min(100%, 400px);
+input:focus,
+select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
 
-select {
-  min-width: 180px;
+main > input[type="text"] {
+  width: 100%;
+  max-width: 450px;
 }
+
+main > select {
+  width: 220px;
+  margin-left: 10px;
+}
+
+/* =========================
+   BOOK GRID
+========================= */
 
 .book-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 22px;
+  margin-top: 20px;
 }
+
+/* =========================
+   BOOK CARDS
+========================= */
 
 .book-card {
   background: white;
-  padding: 22px;
-  border-radius: 10px;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 23px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.book-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.09);
 }
 
 .book-card h3 {
   color: #1e3a5f;
+  margin-top: 0;
+  font-size: 19px;
 }
 
-.book-card a,
-main > a {
+.book-card p {
+  color: #64748b;
+  margin: 12px 0;
+  font-size: 14px;
+}
+
+.book-card a {
   display: inline-block;
+  text-decoration: none;
   background: #2563eb;
   color: white;
-  padding: 10px 15px;
+  padding: 10px 14px;
   border-radius: 6px;
-  text-decoration: none;
-  margin-top: 10px;
+  margin: 8px 8px 0 0;
+  font-size: 14px;
 }
 
-.book-card a:hover,
-main > a:hover {
+.book-card a:hover {
   background: #1d4ed8;
 }
 
-@media (max-width: 600px) {
-  main {
-    padding: 20px 14px;
+.book-card button {
+  display: inline-block;
+  padding: 10px 14px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 6px;
+  background: #0f766e;
+  color: white;
+  font-size: 14px;
+}
+
+.book-card button:hover {
+  background: #115e59;
+}
+
+/* =========================
+   AUTHENTICATION
+========================= */
+
+.auth-container {
+  max-width: 450px;
+  margin: 45px auto;
+  padding: 32px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.07);
+}
+
+.auth-container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-form label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.auth-form input {
+  width: 100%;
+  margin: 0 0 12px;
+}
+
+.auth-form button {
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 13px;
+  border-radius: 7px;
+  margin-top: 8px;
+}
+
+.auth-form button:hover {
+  background: #1d4ed8;
+}
+
+.error-message {
+  color: #dc2626;
+  background: #fee2e2;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+/* =========================
+   SPACE BOOKING
+========================= */
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 550px;
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.06);
+}
+
+.booking-form label {
+  font-weight: 600;
+}
+
+.booking-form input,
+.booking-form select {
+  width: 100%;
+  margin: 0 0 12px;
+}
+
+.booking-form button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  padding: 13px;
+}
+
+.booking-form button:hover {
+  background: #1d4ed8;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px;
   }
 
-  input,
-  select {
+  .nav-links {
+    gap: 13px;
+  }
+
+  main {
+    padding: 25px 16px;
+  }
+
+  main > input[type="text"],
+  main > select {
     width: 100%;
-    margin-right: 0;
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .book-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-container {
+    margin: 25px 15px;
   }
 }
